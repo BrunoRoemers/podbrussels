@@ -1,7 +1,7 @@
-import { ComponentExample } from "@/components/component-example";
+import { LandingPage } from "@/components/landing-page";
 
 export function App() {
-return <ComponentExample />;
+  return <LandingPage />;
 }
 
 export default App;
