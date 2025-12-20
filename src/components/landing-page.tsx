@@ -96,7 +96,7 @@ export function LandingPage() {
                 />
               </div>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight bg-linear-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
               pod.brussels
             </h1>
           </div>
@@ -131,7 +131,7 @@ export function LandingPage() {
             </CardHeader>
             <CardContent>
               <div className="grid md:grid-cols-3 gap-6">
-                <div className="flex flex-col items-center text-center space-y-3 p-6 rounded-2xl bg-gradient-to-br from-primary/5 to-primary/10 border border-primary/20 hover:border-primary/40 transition-colors">
+                <div className="flex flex-col items-center text-center space-y-3 p-6 rounded-2xl bg-linear-to-br from-primary/5 to-primary/10 border border-primary/20 hover:border-primary/40 transition-colors">
                   <div className="p-3 rounded-full bg-primary/10">
                     <Globe className="size-8 text-primary" />
                   </div>
@@ -144,7 +144,7 @@ export function LandingPage() {
                     that's easy to share and remember
                   </p>
                 </div>
-                <div className="flex flex-col items-center text-center space-y-3 p-6 rounded-2xl bg-gradient-to-br from-primary/5 to-primary/10 border border-primary/20 hover:border-primary/40 transition-colors">
+                <div className="flex flex-col items-center text-center space-y-3 p-6 rounded-2xl bg-linear-to-br from-primary/5 to-primary/10 border border-primary/20 hover:border-primary/40 transition-colors">
                   <div className="p-3 rounded-full bg-primary/10">
                     <Sparkles className="size-8 text-primary" />
                   </div>
@@ -154,7 +154,7 @@ export function LandingPage() {
                     for your community project
                   </p>
                 </div>
-                <div className="flex flex-col items-center text-center space-y-3 p-6 rounded-2xl bg-gradient-to-br from-primary/5 to-primary/10 border border-primary/20 hover:border-primary/40 transition-colors">
+                <div className="flex flex-col items-center text-center space-y-3 p-6 rounded-2xl bg-linear-to-br from-primary/5 to-primary/10 border border-primary/20 hover:border-primary/40 transition-colors">
                   <div className="p-3 rounded-full bg-primary/10">
                     <Users className="size-8 text-primary" />
                   </div>
@@ -333,7 +333,7 @@ export function LandingPage() {
 
         {/* CTA */}
         <div className="text-center mb-16">
-          <Card className="bg-gradient-to-br from-primary/10 to-primary/5 border-2 border-primary/20 shadow-xl">
+          <Card className="bg-linear-to-br from-primary/10 to-primary/5 border-2 border-primary/20 shadow-xl">
             <CardContent className="pt-12 pb-12">
               <div className="space-y-4 mb-8">
                 <h2 className="text-3xl md:text-4xl font-bold">
