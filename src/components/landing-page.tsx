@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import {
   Accordion,
   AccordionContent,
@@ -76,7 +77,9 @@ export function LandingPage() {
     ? `I'd like to claim ${subdomain}.pod.brussels\n\nProject name:\nPurpose:\nDescription:`
     : `I'd like to claim a pod.brussels address\n\nDesired name:\nProject name:\nPurpose:\nDescription:`
 
-  const mailtoLink = `mailto:${emailAddress}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`
+  const mailtoLink = `mailto:${emailAddress}?subject=${encodeURIComponent(
+    emailSubject
+  )}&body=${encodeURIComponent(emailBody)}`
 
   return (
     <div className="min-h-screen bg-linear-to-b from-background via-background to-muted/30">
@@ -347,7 +350,7 @@ export function LandingPage() {
                   href={mailtoLink}
                   className={cn(
                     buttonVariants({ size: "lg", variant: "default" }),
-                    "text-lg px-10 py-7 h-auto inline-flex items-center gap-2 no-underline shadow-lg hover:shadow-xl transition-shadow group",
+                    "text-lg px-10 py-7 h-auto inline-flex items-center gap-2 no-underline shadow-lg hover:shadow-xl transition-shadow group"
                   )}
                   aria-label={`Send email to ${emailAddress}`}
                 >
