@@ -74,7 +74,7 @@ export function LandingPage() {
             Your community's memorable web address
           </p>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Get a beautiful, easy-to-remember name like <span className="font-mono font-semibold text-primary">mycommunity.pod.brussels</span> for your group, project, or initiative—completely free.
+            Get a beautiful, easy-to-remember name like <span className="font-mono font-semibold text-primary">{subdomain || "mycommunity"}.pod.brussels</span> for your group, project, or initiative—completely free.
           </p>
         </div>
 
@@ -102,7 +102,7 @@ export function LandingPage() {
                   </div>
                   <h3 className="font-bold text-lg">Memorable Names</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Get a web address like <span className="font-mono text-primary">mycommunity.pod.brussels</span> that's easy to share and remember
+                    Get a web address like <span className="font-mono text-primary">{subdomain || "mycommunity"}.pod.brussels</span> that's easy to share and remember
                   </p>
                 </div>
                 <div className="flex flex-col items-center text-center space-y-3 p-6 rounded-2xl bg-gradient-to-br from-primary/5 to-primary/10 border border-primary/20 hover:border-primary/40 transition-colors">
@@ -190,7 +190,7 @@ export function LandingPage() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <Accordion type="single" collapsible className="w-full">
+            <Accordion className="w-full">
               <AccordionItem value="what-is-pod">
                 <AccordionTrigger className="text-left font-semibold">
                   What is a "pod"?
