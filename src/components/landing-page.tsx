@@ -1,6 +1,7 @@
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { buttonVariants } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { cn } from "@/lib/utils"
 import { Heart, Mail, Sparkles, Users } from "lucide-react"
 import { useState } from "react"
 
@@ -22,6 +23,8 @@ function getSubdomainFromHostname(): string {
 export function LandingPage() {
   const [subdomain] = useState<string>(() => getSubdomainFromHostname())
 
+  const emailAddress = "admin@pod.brussels"
+
   const getSubdomainDisplay = () => {
     if (!subdomain) return null
     return (
@@ -39,10 +42,10 @@ export function LandingPage() {
     : "Claim a pod.brussels subdomain"
   
   const emailBody = subdomain
-    ? `Hi! I'd like to claim ${subdomain}.pod.brussels for my project.\n\nProject/Organization name:\n\nPurpose:\n\nBrief description:`
-    : `Hi! I'd like to claim a pod.brussels subdomain for my project.\n\nDesired subdomain name:\n\nProject/Organization name:\n\nPurpose:\n\nBrief description:`
+    ? `I'd like to claim ${subdomain}.pod.brussels\n\nProject name:\nPurpose:\nDescription:`
+    : `I'd like to claim a pod.brussels subdomain\n\nDesired name:\nProject name:\nPurpose:\nDescription:`
 
-  const mailtoLink = `mailto:admin@pod.brussels?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`
+  const mailtoLink = `mailto:${emailAddress}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`
 
   return (
     <div className="min-h-screen bg-linear-to-b from-background via-background to-muted/20">
@@ -145,8 +148,8 @@ export function LandingPage() {
         </Card>
 
         {/* CTA */}
-        <div className="text-center space-y-6">
-          <div className="space-y-2">
+        <div className="text-center">
+          <div className="space-y-2 mb-6">
             <h2 className="text-2xl md:text-3xl font-bold">
               Ready to claim your subdomain?
             </h2>
@@ -155,19 +158,36 @@ export function LandingPage() {
             </p>
           </div>
           
-          <a href={mailtoLink}>
-            <Button
-              size="lg"
-              className="text-lg px-8 py-6 h-auto"
-            >
-              <Mail className="size-5 mr-2" />
-              Send us an email
-            </Button>
+          <a
+            href={mailtoLink}
+            className={cn(
+              buttonVariants({ size: "lg", variant: "default" }),
+              "text-lg px-8 py-6 h-auto inline-flex no-underline mb-2"
+            )}
+            aria-label={`Send email to ${emailAddress}`}
+          >
+            <Mail className="size-5 mr-2" />
+            Send us an email
           </a>
+            <p className="text-xs text-muted-foreground">
+              Or copy our email:{" "}
+              <button
+                onClick={() => {
+                  navigator.clipboard.writeText(emailAddress)
+                  // You could add a toast notification here if desired
+                }}
+                className="font-mono text-primary hover:underline focus:outline-none focus:underline"
+                type="button"
+              >
+                {emailAddress}
+              </button>
+            </p>
           
-          <p className="text-sm text-muted-foreground pt-4">
-            We'll get back to you soon. Looking forward to supporting your community project! 🌱
-          </p>
+          <div className="space-y-2 pt-4">
+            <p className="text-sm text-muted-foreground">
+              We'll get back to you soon. Looking forward to supporting your community project!
+            </p>
+          </div>
         </div>
 
         {/* Footer note */}
@@ -179,10 +199,10 @@ export function LandingPage() {
           <p>
             Questions? Reach out to{" "}
             <a 
-              href="mailto:admin@pod.brussels" 
+              href={`mailto:${emailAddress}`} 
               className="text-primary hover:underline"
             >
-              admin@pod.brussels
+              {emailAddress}
             </a>
           </p>
         </div>
