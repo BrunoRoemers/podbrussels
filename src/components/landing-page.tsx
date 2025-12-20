@@ -4,7 +4,7 @@ import { buttonVariants } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
 import { ArrowRight, CheckCircle2, Globe, Heart, Mail, Sparkles, Users } from "lucide-react"
-import { useState } from "react"
+import { CopyEmailButton } from "./copy-email-button"
 
 function getSubdomainFromHostname(): string {
   if (typeof window === "undefined") return ""
@@ -22,7 +22,7 @@ function getSubdomainFromHostname(): string {
 }
 
 export function LandingPage() {
-  const [subdomain] = useState<string>(() => getSubdomainFromHostname())
+  const subdomain = 'TODO'
 
   const emailAddress = "admin@pod.brussels"
 
@@ -286,16 +286,7 @@ export function LandingPage() {
                 </a>
                 <p className="text-sm text-muted-foreground">
                   Or copy our email:{" "}
-                  <button
-                    onClick={() => {
-                      navigator.clipboard.writeText(emailAddress)
-                      // You could add a toast notification here if desired
-                    }}
-                    className="font-mono text-primary hover:underline focus:outline-none focus:underline font-semibold"
-                    type="button"
-                  >
-                    {emailAddress}
-                  </button>
+                  <CopyEmailButton email={emailAddress} />
                 </p>
               </div>
               
