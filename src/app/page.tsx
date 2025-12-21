@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
+import { CurrentDomainName } from "@/components/current-domain-name"
 import {
   Accordion,
   AccordionContent,
@@ -26,24 +27,8 @@ import {
 } from "lucide-react"
 import { CopyEmailButton } from "../components/copy-email-button"
 
-function getSubdomainFromHostname(): string {
-  if (typeof window === "undefined") return ""
-
-  const hostname = window.location.hostname
-  const parts = hostname.split(".")
-
-  // If we're on a subdomain (e.g., neighborhood.pod.brussels)
-  // parts would be: ["neighborhood", "pod", "brussels"]
-  if (parts.length >= 3 && parts[1] === "pod" && parts[2] === "brussels") {
-    return parts[0]
-  }
-
-  return ""
-}
-
 export default function LandingPage() {
   const subdomain = "TODO"
-
   const emailAddress = "admin@pod.brussels"
 
   const getSubdomainDisplay = () => {
@@ -106,7 +91,7 @@ export default function LandingPage() {
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
             Get a beautiful, easy-to-remember name like{" "}
             <span className="font-mono font-semibold text-primary">
-              {subdomain || "mycommunity"}.pod.brussels
+              <CurrentDomainName />
             </span>{" "}
             for your group, project, or initiative—completely free.
           </p>
@@ -139,7 +124,7 @@ export default function LandingPage() {
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     Get a web address like{" "}
                     <span className="font-mono text-primary">
-                      {subdomain || "mycommunity"}.pod.brussels
+                      <CurrentDomainName />
                     </span>{" "}
                     that's easy to share and remember
                   </p>
