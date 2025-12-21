@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import { CurrentDomainName } from "@/components/current-domain-name"
+import { SendEmailButton } from "@/components/send-email-button"
 import {
   Accordion,
   AccordionContent,
@@ -7,7 +8,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { Badge } from "@/components/ui/badge"
-import { buttonVariants } from "@/components/ui/button"
 import {
   Card,
   CardContent,
@@ -15,21 +15,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { cn } from "@/lib/utils"
-import {
-  ArrowRight,
-  CheckCircle2,
-  Globe,
-  Heart,
-  Mail,
-  Sparkles,
-  Users,
-} from "lucide-react"
+import { emailAddress } from "@/constants"
+import { CheckCircle2, Globe, Heart, Sparkles, Users } from "lucide-react"
 import { CopyEmailButton } from "../components/copy-email-button"
 
 export default function LandingPage() {
   const subdomain = "TODO"
-  const emailAddress = "admin@pod.brussels"
 
   const getSubdomainDisplay = () => {
     if (!subdomain) return null
@@ -53,18 +44,6 @@ export default function LandingPage() {
       </div>
     )
   }
-
-  const emailSubject = subdomain
-    ? `Claim ${subdomain}.pod.brussels`
-    : "Claim a pod.brussels address"
-
-  const emailBody = subdomain
-    ? `I'd like to claim ${subdomain}.pod.brussels\n\nProject name:\nPurpose:\nDescription:`
-    : `I'd like to claim a pod.brussels address\n\nDesired name:\nProject name:\nPurpose:\nDescription:`
-
-  const mailtoLink = `mailto:${emailAddress}?subject=${encodeURIComponent(
-    emailSubject
-  )}&body=${encodeURIComponent(emailBody)}`
 
   return (
     <div className="min-h-screen bg-linear-to-b from-background via-background to-muted/30">
@@ -331,18 +310,7 @@ export default function LandingPage() {
               </div>
 
               <div className="flex flex-col items-center gap-4">
-                <a
-                  href={mailtoLink}
-                  className={cn(
-                    buttonVariants({ size: "lg", variant: "default" }),
-                    "text-lg px-10 py-7 h-auto inline-flex items-center gap-2 no-underline shadow-lg hover:shadow-xl transition-shadow group"
-                  )}
-                  aria-label={`Send email to ${emailAddress}`}
-                >
-                  <Mail className="size-5" />
-                  Get started
-                  <ArrowRight className="size-5 group-hover:translate-x-1 transition-transform" />
-                </a>
+                <SendEmailButton />
                 <p className="text-sm text-muted-foreground">
                   Or copy our email: <CopyEmailButton email={emailAddress} />
                 </p>
