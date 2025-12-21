@@ -14,8 +14,8 @@ export const SendEmailButton = () => {
     : "Claim a pod.brussels address"
 
   const emailBody = subdomain
-    ? `I'd like to claim ${subdomain}.pod.brussels\n\nProject name:\nPurpose:\nDescription:`
-    : `I'd like to claim a pod.brussels address\n\nDesired name:\nProject name:\nPurpose:\nDescription:`
+    ? `I'd like to claim ${subdomain}.pod.brussels. [Tell us about your project]`
+    : `I'd like to claim [name].pod.brussels. [Tell us about your project]`
 
   const mailtoLink = [
     `mailto:${emailAddress}`,
