@@ -17,7 +17,14 @@ import {
 } from "@/components/ui/card"
 import { emailAddress } from "@/constants"
 import { Globe, Heart, Sparkles, Users } from "lucide-react"
+import type { Metadata } from "next"
 import { CopyEmailButton } from "../components/copy-email-button"
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://pod.brussels",
+  },
+}
 
 export default function LandingPage() {
   return (
