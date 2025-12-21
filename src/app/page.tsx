@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import { CurrentDomainName } from "@/components/current-domain-name"
+import { DomainAvailableBanner } from "@/components/domain-available-banner"
 import { SendEmailButton } from "@/components/send-email-button"
 import {
   Accordion,
@@ -7,7 +8,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
-import { Badge } from "@/components/ui/badge"
 import {
   Card,
   CardContent,
@@ -16,35 +16,10 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { emailAddress } from "@/constants"
-import { CheckCircle2, Globe, Heart, Sparkles, Users } from "lucide-react"
+import { Globe, Heart, Sparkles, Users } from "lucide-react"
 import { CopyEmailButton } from "../components/copy-email-button"
 
 export default function LandingPage() {
-  const subdomain = "TODO"
-
-  const getSubdomainDisplay = () => {
-    if (!subdomain) return null
-    return (
-      <div className="flex flex-col items-center gap-3 justify-center mb-12 p-6 rounded-2xl bg-primary/5 border-2 border-primary/20">
-        <div className="flex items-center gap-2">
-          <CheckCircle2 className="size-6 text-primary" />
-          <span className="text-lg font-semibold text-foreground">
-            This name is available!
-          </span>
-        </div>
-        <Badge
-          variant="outline"
-          className="text-xl px-6 py-3 font-mono border-primary/30 bg-background"
-        >
-          {subdomain}.pod.brussels
-        </Badge>
-        <p className="text-sm text-muted-foreground text-center">
-          Claim this memorable address for your community
-        </p>
-      </div>
-    )
-  }
-
   return (
     <div className="min-h-screen bg-linear-to-b from-background via-background to-muted/30">
       <div className="container mx-auto px-4 py-12 md:py-24 max-w-5xl">
@@ -77,7 +52,7 @@ export default function LandingPage() {
         </div>
 
         {/* Availability notice */}
-        {getSubdomainDisplay()}
+        <DomainAvailableBanner />
 
         {/* Value Proposition */}
         <div className="mb-16">
