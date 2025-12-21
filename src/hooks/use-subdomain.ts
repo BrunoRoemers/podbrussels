@@ -8,6 +8,7 @@ export const useSubdomain = (): string | undefined => {
 
   const parts = hostname.split(".")
   if (parts.length != 3) return undefined
+  if (parts[1] != "pod" || parts[2] != "brussels") return undefined
 
   return parts[0]
 }
