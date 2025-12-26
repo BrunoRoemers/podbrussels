@@ -33,7 +33,7 @@ export const SendEmailButton = () => {
       aria-label={`Send email to ${emailAddress}`}
     >
       <Mail className="size-5" />
-      Get started
+      Reach out
       <ArrowRight className="size-5 group-hover:translate-x-1 transition-transform" />
     </a>
   )
