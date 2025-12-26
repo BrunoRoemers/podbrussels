@@ -197,7 +197,7 @@ export default function LandingPage() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <Accordion className="w-full">
+            <Accordion type="multiple" className="w-full">
               <AccordionItem value="what-is-pod">
                 <AccordionTrigger className="text-left font-semibold">
                   What is a "pod"?
