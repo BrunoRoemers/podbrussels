@@ -1,6 +1,5 @@
 import { ImageResponse } from "next/og"
 
-export const runtime = "edge"
 export const alt = "pod.brussels"
 export const size = {
   width: 1200,
@@ -17,8 +16,9 @@ export default async function Image() {
           width: "100%",
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
+          alignItems: "flex-start",
           justifyContent: "center",
+          padding: "40px 200px",
           background: "linear-gradient(to bottom, #ffffff, #f0f9f4)",
           fontFamily: "system-ui, -apple-system, sans-serif",
         }}
@@ -27,7 +27,6 @@ export default async function Image() {
         <div
           style={{
             display: "flex",
-            marginBottom: "40px",
           }}
         >
           <svg
@@ -39,7 +38,7 @@ export default async function Image() {
           >
             <path
               d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-              fill="#22c55e"
+              fill="#009869"
             />
           </svg>
         </div>
@@ -50,12 +49,12 @@ export default async function Image() {
             display: "flex",
             fontSize: "96px",
             fontWeight: "bold",
-            color: "#147d3f",
-            letterSpacing: "-0.02em",
+            color: "#4a5568",
             marginBottom: "20px",
           }}
         >
-          pod.brussels
+          <span style={{ color: "#009869" }}>your</span>
+          <span>.pod.brussels</span>
         </div>
 
         {/* Tagline */}
